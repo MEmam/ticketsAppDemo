@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html ng-app="ticketApp">
+<head>
+  <title>Customer Support Tickets</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body class="container">
+<div class='row' ng-include src="'views/auth/header.htm'">
+</div>
+
+
+<%= yield %>
+
+</body>
+</html>

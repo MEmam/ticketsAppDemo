@@ -1,0 +1,37 @@
+<div class="panel panel-default">
+  <div ng-include src="'views/requests/request_form.htm'" ng-show="user.type == 'Customer'">
+  </div>
+  <div ng-include src="'views/requests/request_filter.htm'" ng-show="user.type != 'Customer'">
+  </div>
+
+  <button class='btn btn-primary' ng-click='downLoadPdf()' ng-show="user.type != 'Customer'">Download Pdf</button>
+
+  <table class="table">
+    <thead>
+      <th>Name</th>
+      <th>Label</th>
+      <th>Status</th>
+      <th>Created at</th>
+      <th>Updated at</th>
+      <th ng-show="user.type != 'Customer'">Edit</th>
+      <th ng-show="user.type == 'Admin'">Delete</th>
+    </thead>
+    <tbody>
+      <tr ng-repeat="request in requestsFiltered" ng-modal='requestsFiltered'>
+        <td>{{ request.name }}</td>
+        <td>{{ request.label }}</td>
+        <td>{{ request.request_status }}</td>
+        <td>{{ request.created_at }}</td>
+        <td>{{ request.updated_at }}</td>
+        <th ng-show="user.type != 'Customer'">
+          <button ng-repeat='status in request_statuses' class='btn btn-default' ng-class="{'btn-primary disabled': request.request_status == status.name}" ng-click="updateStatus(request, status.id)">
+            {{status.name}}
+          </button>
+        </th>
+        <td ng-show="user.type == 'Admin'">
+          <button class='btn' ng-click="deleteRequest(request.id)">&times</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

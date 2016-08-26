@@ -1,0 +1,6 @@
+<a class="btn btn-default pull-left" href="#/users" ng-show="user.type == 'Admin'">Users</a>
+<a class="btn btn-default pull-left" href="#/" ng-show="user.type == 'Admin'">Requests</a>
+<a class="btn btn-default pull-right" ng-controller="MainCtrl" ng-click="signOutUser()" ng-if="user.signedIn">Sign out</a>
+<h5 class="pull-right">{{ user.name }}</h5>
+<a class="btn btn-default pull-right" ng-controller="MainCtrl" ng-click='openSignin()' ng-if="!user.signedIn">Sign In</a>
+<a class="btn btn-default pull-right" ng-controller="MainCtrl" ng-click='openSignUp()' ng-if="!user.signedIn">Sign Up</a>

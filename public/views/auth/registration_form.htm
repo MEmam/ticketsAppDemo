@@ -1,0 +1,41 @@
+<div class="modal-header">
+  <h3 class="modal-title" id="modal-title">Sign In</h3>
+</div>
+<div class="modal-body" id="modal-body">
+    <form ng-submit="registerUser()" role="form" ng-init="registrationForm = {}" ng-show="!user.signedIn">
+      <div class="form-group">
+        <label>name</label>
+        <input type="text" name="name" ng-model="registrationForm.name" required="required" class="form-control"/>
+      </div>
+
+      <div class="form-group">
+        <label>email</label>
+        <input type="email" name="email" ng-model="registrationForm.email" required="required" class="form-control"/>
+      </div>
+
+      <div class="form-group">
+        <label>password</label>
+        <input type="password" name="password" ng-model="registrationForm.password" required="required" class="form-control"/>
+      </div>
+
+      <div class="form-group">
+        <label>password confirmation</label>
+        <input type="password" name="password_confirmation" ng-model="registrationForm.password_confirmation" required="required" class="form-control"/>
+      </div>
+
+      <div class="form-group">
+        <label>type</label>
+        <select name="type" ng-model="registrationForm.type" required="required" class="form-control">
+          <option disabled selected value>Select Type</option>
+          <option value='Admin'>Admin</option>
+          <option value='Customer'>Customer</option>
+          <option value='SupportAgent'>Support Agent</option>
+        </select>
+      </div>
+
+
+        <div class="modal-footer">
+        <button type="submit" class="btn btn-primary btn-lg">Register</button>
+        </div>
+    </form>
+</div>

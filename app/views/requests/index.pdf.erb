@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Closed Requests <%= @last_month.strftime("%B - %Y")%></h1>
+
+<table border="1">
+  <thead>
+      <th>Name</th>
+      <th>Label</th>
+      <th>Status</th>
+      <th>Created at</th>
+      <th>Updated at</th>
+  </thead>
+
+  <tbody>
+    <% @requests.each do |request| %>
+      <tr>
+        <td><%= request.name %></td>
+        <td><%= request.label %></td>
+        <td><%= request.request_status.name %></td>
+        <td><%= request.created_at.to_s(:db) %></td>
+        <td><%= request.updated_at.to_s(:db) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

@@ -1,0 +1,31 @@
+<div class="panel panel-default" ng-show="user.type == 'Admin'">
+  <div ng-include src="'views/users/user_filter.htm'" >
+  </div>
+
+  <table class="table">
+    <thead>
+      <th>Name</th>
+      <th>email</th>
+      <th>Created at</th>
+      <th>Updated at</th>
+      <th>type</th>
+      <th>Delete</th>
+    </thead>
+    <tbody>
+      <tr ng-repeat="user in usersFiltered" ng-modal='usersFiltered'>
+        <td>{{ user.name }}</td>
+        <td>{{ user.email }}</td>
+        <td>{{ user.created_at }}</td>
+        <td>{{ user.updated_at }}</td>
+        <th>
+          <button ng-repeat='type in users_types' class='btn btn-default' ng-class="{'btn-primary disabled': user.type == type}" ng-click="updateType(user, type)">
+            {{type}}
+          </button>
+        </th>
+        <td>
+          <button class='btn' ng-click="deleteUser(user.id)">&times</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,23 @@
+<h3>Filters</h3>
+<form ng-submit="filterRequest()" role="form" ng-init="requestFilter = {}" >
+  <div class="form-group">
+    <label>Label</label>
+    <input type="text" name="label" ng-model="requestFilter.label" class="form-control"/>
+  </div>
+  <div class="form-group">
+    <label>Name</label>
+    <input type="text" name="name" ng-model="requestFilter.name" class="form-control"/>
+  </div>
+
+  <div class="form-group">
+    <label>Request Status</label>
+    <select name="request_status" ng-model="requestFilter.request_status" class="form-control">
+      <option selected value>All</option>
+      <option ng-repeat='status in request_statuses' value={{status.name}}>{{ status.name }}</option>
+    </select>
+  </div>
+  <div class="modal-footer">
+    <button type="submit" class="btn btn-primary btn-lg">Filter</button>
+  </div>
+
+</form>
